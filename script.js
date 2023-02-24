@@ -1,4 +1,4 @@
-let calc = require("./calc")
+/* let calc = require("./calc")
 console.log(calc)
 let args = process.argv.slice(2);
 console.log(args);
@@ -20,3 +20,25 @@ if(validacao == "S"){
 
 console.log(resultado);
 
+ */
+
+let fs = require('fs');
+
+let args = process.argv.slice(2);
+
+let filename = args[1];
+
+let teste = process.argv;
+console.log(teste)
+
+fs.readFile(filename, "UTF8", (error, data) =>{
+
+    if(error) throw error;
+
+    fs.writeFile(filename + "_Uppercase", data.toUpperCase(), (error) =>{
+        if(error) throw error;
+
+        console.log("Arquivo Gerado com sucesso")
+    })
+})
+ 
